@@ -18,6 +18,19 @@ class ContactsBook extends Component {
     };
   }
 
+  componentDidMount() {
+    const addedConstats = localStorage.getItem('contacts');
+    if (addedConstats) {
+      this.setState({ contacts: JSON.parse(addedConstats) });
+    }
+  }
+
+  componentDidUpdate(_prevProps, prevState) {
+    if (prevState.contacts !== this.state.contacts) {
+      localStorage.setItem('constacts', JSON.stringify(this.state.contacts));
+    }
+  }
+
   handleChange = ev => {
     const { name, value } = ev.currentTarget;
     this.setState({
