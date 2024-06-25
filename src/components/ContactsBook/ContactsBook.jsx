@@ -27,7 +27,7 @@ class ContactsBook extends Component {
 
   componentDidUpdate(_prevProps, prevState) {
     if (prevState.contacts !== this.state.contacts) {
-      localStorage.setItem('constacts', JSON.stringify(this.state.contacts));
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
     }
   }
 
